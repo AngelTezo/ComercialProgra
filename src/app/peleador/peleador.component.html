@@ -4,8 +4,8 @@
         <div class="col-md-7">
             <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Jugadores</h4>
-                  <p class="card-category">Listado de los jugadores</p>
+                  <h4 class="card-title">Peleadores</h4>
+                  <p class="card-category">Listado de los peleadores</p>
                   <a class="pull-right" style="color:whitesmoke" href="#">
                   <i class="material-icons">
                       add
@@ -17,24 +17,24 @@
                     <thead class="text-warning">
                       <th>ID</th>
                       <th>Nombre</th>
-                      <th>Consola</th>
+                      <th>Compania</th>
                       <th>Peleadores</th>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let jugador of jugadores">
-                        <td>{{jugador.idJUGADOR}}</td>
-                        <td>{{jugador.Nombre}}</td>
-                        <td>{{jugador.Consola}}</td>
-                        <td>{{jugador.estado}}</td>
+                      <tr *ngFor="let peleador of peleadores">
+                        <td>{{peleador.idPELEADOR}}</td>
+                        <td>{{peleador.Nombre}}</td>
+                        <td>{{peleador.Compania}}</td>
+                        <td>{{peleador.estado}}</td>
                         <td>
-                        <a href="#" (click)="selctJugador(jugador)" class='pull-right'>
+                        <a href="#" (click)="selctpeleador(peleador)" class='pull-right'>
                             <i class="material-icons">
                               create
                             </i>
                         </a>
                         </td>
                         <td>                       
-                           <a href="" (click)="delete(jugador)" class='pull-right'>
+                           <a href="" (click)="delete(peleador)" class='pull-right'>
                             <i class="material-icons">
                               delete
                             </i>
@@ -50,11 +50,11 @@
       <div *ngIf="createJ" class="col-md-5">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title">Agregar Jugador</h4>
+            <h4 class="card-title">Agregar peleador</h4>
             <p class="card-category">Complete los siguientes campos</p>
           </div>
           <div class="card-body">
-            <form [formGroup]="jugadorCreate"  (ngSubmit)="create()">
+            <form [formGroup]="peleadorCreate"  (ngSubmit)="create()">
               <div class="row">
                 <div class="col-md-10">
                   <div class="form-group">
@@ -66,12 +66,12 @@
               <div class="row">
                 <div class="col-md-10">
                   <div class="form-group">
-                    <label class="bmd-label-floating">Consola</label>
-                    <input formControlName="Consola" type="text" class="form-control">
+                    <label class="bmd-label-floating">Compania</label>
+                    <input formControlName="Compania" type="text" class="form-control">
                   </div>
                 </div>
               </div>
-              <button type="submit"  class="btn btn-primary pull-right"  [disabled]="jugadorCreate.invalid">Agregar</button>
+              <button type="submit"  class="btn btn-primary pull-right"  [disabled]="peleadorCreate.invalid">Agregar</button>
               <div class="clearfix"></div>
             </form>
           </div>
@@ -81,11 +81,11 @@
       <div  *ngIf="updateJ" class="col-md-5">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title">Actualizar jugaddor Jugador</h4>
+            <h4 class="card-title">Actualizar jugaddor peleador</h4>
             <p class="card-category">Complete los siguientes campos</p>
           </div>
           <div class="card-body">
-            <form [formGroup]="jugadorUpdate"  (ngSubmit)="update()">
+            <form [formGroup]="peleadorUpdate"  (ngSubmit)="update()">
               <div class="row">
                 <div class="col-md-10">
                   <div class="form-group">
@@ -97,13 +97,13 @@
               <div class="row">
                 <div class="col-md-10">
                   <div class="form-group">
-                    <label class="bmd-label-floating">Consola</label>
-                    <input formControlName="Consola" type="text" class="form-control">
+                    <label class="bmd-label-floating">Compania</label>
+                    <input formControlName="Compania" type="text" class="form-control">
                   </div>
                 </div>
               </div>
               <button  class="btn btn-secondary"  (click)="cancelar()" >Cancelar</button>
-              <button type="submit"  class="btn btn-primary pull-right"  [disabled]="jugadorUpdate.invalid">Actualizar</button>
+              <button type="submit"  class="btn btn-primary pull-right"  [disabled]="peleadorUpdate.invalid">Actualizar</button>
               <div class="clearfix"></div>
             </form>
           </div>
@@ -113,4 +113,3 @@
     </div>
   </div>
 </div>
-

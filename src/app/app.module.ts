@@ -5,12 +5,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
+import { PeleadorComponent } from './peleador/peleador.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayerComponent
+    PlayerComponent,
+    PeleadorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
