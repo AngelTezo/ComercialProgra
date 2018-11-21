@@ -1,0 +1,115 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Jugadores</h4>
+                  <p class="card-category">Listado de los jugadores</p>
+                  <a class="pull-right" style="color:whitesmoke" href="#">
+                  <i class="material-icons">
+                      add
+                  </i>
+                  </a>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>ID</th>
+                      <th>Nombre</th>
+                      <th>Consola</th>
+                      <th>Peleadores</th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let jugador of jugadores">
+                        <td>{{jugador.idJUGADOR}}</td>
+                        <td>{{jugador.Nombre}}</td>
+                        <td>{{jugador.Consola}}</td>
+                        <td>{{jugador.estado}}</td>
+                        <td>
+                        <a href="#" (click)="selctJugador(jugador)" class='pull-right'>
+                            <i class="material-icons">
+                              create
+                            </i>
+                        </a>
+                        </td>
+                        <td>                       
+                           <a href="" (click)="delete(jugador)" class='pull-right'>
+                            <i class="material-icons">
+                              delete
+                            </i>
+                        </a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+        </div>
+
+
+      <div *ngIf="createJ" class="col-md-5">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Agregar Jugador</h4>
+            <p class="card-category">Complete los siguientes campos</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="jugadorCreate"  (ngSubmit)="create()">
+              <div class="row">
+                <div class="col-md-10">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Nombre</label>
+                    <input formControlName="Nombre" type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-10">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Consola</label>
+                    <input formControlName="Consola" type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <button type="submit"  class="btn btn-primary pull-right"  [disabled]="jugadorCreate.invalid">Agregar</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div  *ngIf="updateJ" class="col-md-5">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Actualizar jugaddor Jugador</h4>
+            <p class="card-category">Complete los siguientes campos</p>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="jugadorUpdate"  (ngSubmit)="update()">
+              <div class="row">
+                <div class="col-md-10">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Nombre</label>
+                    <input formControlName="Nombre" type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-10">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Consola</label>
+                    <input formControlName="Consola" type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <button  class="btn btn-secondary"  (click)="cancelar()" >Cancelar</button>
+              <button type="submit"  class="btn btn-primary pull-right"  [disabled]="jugadorUpdate.invalid">Actualizar</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+</div>
